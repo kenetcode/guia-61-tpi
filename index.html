@@ -1,0 +1,108 @@
+<!--DATOS PERSONALES
+Nombre: Kenet Arnulfo Ortiz Pineda
+Carnet: OP20001
+Materia: TPI115-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>WEB API</title>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="personal-data">
+            <p>Datos Personales:</p>
+            <p>Nombre: Kenet Arnulfo Ortiz Pineda</p>
+            <p>Carnet: OP20001</p>
+            <p>Materia: TPI115</p>
+        </div>
+        <div class="api-data ">
+            <h3 class="navbar-title">Practica web api</h3>
+            <div class="navbar-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/10169/10169724.png" alt="img-api">
+            </div>
+        </div>
+    </nav>
+    <div class="obtenerArt">
+        <button id="obtenerArt-btn" onclick="mostrarArticulos()">Obtener Articulos</button>
+    </div>
+    <main id="main">
+        <!-- Contenedor para el botón de agregar producto -->
+        <div class="container-opt">
+            <div class="filtro-category">
+                <label for="filtro">Buscar por:</label>
+                <select id="filtro-category" name="filtro-category" onchange="filtrarArticulos()">
+                    <option value="" disabled selected>Categoria</option>
+                    <option value="electronicos">Electronicos</option>
+                    <option value="joyeria">Joyeria</option>
+                    <option value="caballeros">Ropa hombre</option>
+                    <option value="damas">Ropa mujer</option>
+                </select>
+                <select id="filtro-price" name="filtro-price" onchange="filtrarArticulos()">
+                    <option value="" disabled selected>Precio</option>
+                    <option value="desc">Mayor a Menor</option>
+                    <option value="asc">Menor a Mayor</option>
+                </select>
+                <button id="limpiar-filtros">Limpiar Filtros</button>
+            </div>
+            <button id="add-btn">Agregar producto</button>
+        </div>
+        <!-- Contenedor para la tabla de productos -->
+        <div class="container-table">
+            <table>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Título</th>
+                    <th>Precio</th>
+                    <th>Categoría</th>
+                    <th>Descripción</th>
+                    <th>Eliminar</th>
+                </tr>
+                <tbody id="tbody">
+                    <!-- Las filas de productos se agregarán aquí dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <!-- Sección para agregar un nuevo producto -->
+    <section id="add-container">
+        <form id="add-product-form">
+            <div class="option">
+                <label for="product-image">Imagen (url):</label>
+                <input type="text" id="product-image" name="product-image">
+            </div>
+            <div class="option">
+                <label for="product-price">Precio:</label>
+                <input type="number" id="product-price" name="product-price">
+            </div>
+            <div class="option">
+                <label for="product-title">Título:</label>
+                <input type="text" id="product-title" name="product-title">    
+            </div>
+            <div class="option">
+                <label for="product-category">Categoría:</label>
+                <select id="product-category" name="product-category">
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="electronicos">electronicos</option>
+                    <option value="joyeria">joyeria</option>
+                    <option value="caballeros">Ropa hombre</option>
+                    <option value="damas">Ropa mujer</option>
+                </select>
+            </div>
+            <div class="option">
+                <label for="product-description">Descripción:</label>
+                <textarea name="product-description" id="product-description"></textarea>
+            </div>                        
+            <!-- Botones para agregar o cancelar la adición del producto -->
+            <div class="forms-btn">
+                <button type="button" id="add-btn-forms">Agregar</button>
+                <button type="button" id="can-btn-forms">Cancelar</button>
+            </div>
+        </form>
+    </section>
+    <script src="main.js"></script>
+</body>
+</html>

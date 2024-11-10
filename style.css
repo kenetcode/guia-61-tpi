@@ -1,0 +1,331 @@
+/* DATOS PERSONALES
+Nombre: Kenet Arnulfo Ortiz Pineda
+Carnet: OP20001
+Materia: TPI115 */
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Nanum+Gothic&display=swap');
+
+/* CSS Soporta la declaración de las variables de esta manera: */
+:root {
+    --primary-color: #1F3B4D; /* Cambiado a un tono azul oscuro */
+    --secondary-color: #3A6073; /* Cambiado a un tono azul medio */
+    --terciary-color: #A8DADC; /* Cambiado a un tono azul claro */
+    --quarter-color: #457B9D; /* Cambiado a un tono azul verdoso */
+    --font-color: #F1FAEE; /* Cambiado a un tono blanco hueso */
+    --bg-color: #F0F4F8; /* Cambiado a un tono gris claro */
+    --bg-color-2: #E0E5EC; /* Cambiado a un tono gris más oscuro */
+    --white: #FFFFFF; /* Blanco */
+    --primary-font: "Nanum Gothic", sans-serif;
+    --secondary-font: "Edu AU VIC WA NT Hand";
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width:auto;
+    scrollbar-color: var(--bg-color) var(--secondary-color);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    color: var(--white);
+    font-family: var(--primary-font);
+    height: 6rem;
+    box-shadow: 0 0 10px rgba(1, 1, 1, 0.7);;
+}
+
+.personal-data {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.api-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}	
+
+.navbar-icon {
+    height: 100%;
+}
+
+.navbar-icon img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* APARECER TODO CON EL BOTON OBTENER PRODUCTOS*/
+.obtenerArt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+#obtenerArt-btn{
+    background-color: var(--quarter-color);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: var(--primary-font);
+}
+
+#obtenerArt-btn:hover{
+    background-color: var(--secondary-color);
+}
+
+#main{
+    z-index: -1;
+    opacity: 0;
+    display: none; 
+}	
+
+#main.active{
+    opacity: 1;
+    z-index: 0;
+    display: flex; 
+    height: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--white);
+    height: 80vh;
+    margin: 3rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(1, 1, 1, 0.7);
+}
+
+.container-opt{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 80vw; 
+    font-weight: bold;
+    font-family: var(--primary-font);
+}
+
+.container-opt button{
+    background-color: var(--quarter-color);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1rem;
+    font-weight: bold;
+    font-family: var(--primary-font);
+}
+
+.filtro-category select{
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 25%;
+    font-family: var(--primary-font);
+}
+
+.container-opt button:hover{
+    background-color: var(--secondary-color);
+}
+
+.container-table{   
+    /* max-height: 50vh; */ /* Altura máxima antes de que aparezca el scroll */
+    /* max-width: 80vw;  */ /* Ancho máximo antes de que aparezca el scroll */
+    /* overflow-y: auto;  *//* Muestra el scroll solo cuando sea necesario */
+    height: auto;
+    border: 2px solid #ddd; /* Borde alrededor del contenedor */
+    border-radius: 5px; /* Borde redondeado */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--primary-font);
+    font-size: 16px;
+    text-align: left;
+    text-align: justify;
+    font-weight: bold;
+    color: black;  
+}
+
+table th {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: bold;
+}
+
+/* Estilo de las celdas del encabezado */
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid black;
+}
+
+table td {
+    background-color: var(--terciary-color);
+    color: var(--primary-color);
+}
+
+/* Celdas del encabezado */
+table tbody tr {
+    background-color: var(--bg-color-2);
+}
+
+table tbody tr:nth-child(even) td {
+    background-color: var(--bg-color-2);
+}
+
+table tbody tr:hover td {
+    background-color: var(--quarter-color);
+    color: var(--white);
+}
+
+/* Imagen en miniatura */
+table img{
+    width: 50px;
+    height: auto;
+}
+
+table .container-img{
+    background-color: var(--white);
+}
+
+#btn-eliminar{ 
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1rem;
+    background-color: var(--white);
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+#btn-eliminar:hover{
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+
+/* AÑADIENDO LO DE AGREGAR PRODUCTO */
+#add-container{
+    opacity: 0;
+    transition: all 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff9c;
+    position: fixed;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#add-container.active{
+    opacity: 1;
+    top: 50%;
+    transition: all 0.5s ease;
+}
+
+#add-product-form{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    place-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: var(--bg-color-2);
+    font-family: var (--primary-font);
+    width: 50vw;
+    height: 80vh;
+    max-height: 80vh; /* Altura máxima antes de que aparezca el scroll */
+    overflow-y: auto; /* Muestra el scroll solo cuando sea necesario */
+
+}	
+
+.option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}	
+
+#add-product-form input{
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 50%;
+    font-family: var(--primary-font);
+}
+
+#add-product-form #product-category{
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 50%;
+    font-family: var(--primary-font);
+}
+
+#add-product-form #product-image{  
+    width: 70%;
+}
+
+#add-product-form #product-description{  
+    width: 70%;
+    height: 20vh;
+    padding: 0.5rem;
+    text-align: left;
+    border: 1px solid black;
+    border-radius: 5px;
+}	
+
+#add-product-form button{
+    background-color: var(--quarter-color);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1rem;
+    font-weight: bold;
+    font-family: var(--primary-font);
+}
+
+#add-product-form button:hover{
+    background-color: var(--secondary-color);
+}
